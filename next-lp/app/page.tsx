@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";  // 追加
 
 function ReformSelection() {
   return (
@@ -14,6 +16,8 @@ function ReformSelection() {
 }
 
 export default function HomePage() {
+  const router = useRouter();  // 追加
+
   return (
     <div className="bg-orange-50 min-h-screen w-full">
       <div className="flex flex-col items-center p-4 w-full">
@@ -61,7 +65,9 @@ export default function HomePage() {
         <div className="bg-white p-6 rounded-lg shadow-md text-center mt-6 w-full max-w-2xl">
           <p className="text-gray-800 text-lg">まずはどんなお部屋にしたいのか</p>
           <p className="text-gray-800 text-lg mb-4">理想のイメージを持ちたい方はこちら</p>
-          <button className="bg-orange-400 text-white text-lg font-semibold py-3 px-8 rounded-full hover:bg-orange-500 transition shadow-lg">
+          <button 
+            onClick={() => router.push("/second")}  // `/second` に遷移
+            className="bg-orange-400 text-white text-lg font-semibold py-3 px-8 rounded-full hover:bg-orange-500 transition shadow-lg">
             理想のイメージ画像を作る
           </button>
         </div>
